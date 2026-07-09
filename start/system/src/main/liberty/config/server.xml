@@ -1,0 +1,22 @@
+<server description="System Service">
+
+    <featureManager>
+        <platform>jakartaee-10.0</platform>
+        <platform>microprofile-7.1</platform>
+        <feature>cdi</feature>
+        <feature>concurrent</feature>
+        <feature>jsonb</feature>
+        <feature>mpHealth</feature>
+        <feature>mpConfig</feature>
+        <feature>mpReactiveMessaging</feature>
+    </featureManager>
+
+    <variable name="http.port" defaultValue="9083"/>
+    <variable name="https.port" defaultValue="9446"/>
+
+    <httpEndpoint host="*" httpPort="${http.port}"
+                  httpsPort="${https.port}" id="defaultHttpEndpoint"/>
+
+    <logging consoleLogLevel="INFO"/>
+    <webApplication location="system.war" contextRoot="/"/>
+</server>
